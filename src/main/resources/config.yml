@@ -1,8 +1,2 @@
 messages:
   ### Make sure that every line is not NULL, if so, there will be errors
-  PlayerNotConnected: "§cError: The specified player is not connected."
-  sender: "§6Me -> %t%§f: "
-  target: "§6%s% -> Me: "
-  usage: "§c/msg <player> <message>"
-  adminSuccessReload: "§aThe configuration file has been reloaded successfully"
-  adminHelp: "§c/bm <reload>"

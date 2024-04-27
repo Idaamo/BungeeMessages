@@ -1,6 +1,7 @@
 package fr.idaamo.bungeemessages;
 
 import fr.idaamo.bungeemessages.commands.Message;
+import fr.idaamo.bungeemessages.commands.Reload;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -18,8 +19,9 @@ public final class BungeeMessages extends Plugin {
 
     @Override
     public void onEnable() {
-        //Register proxy command
+        //Register proxy commands
         this.getProxy().getPluginManager().registerCommand(this, new Message());
+        this.getProxy().getPluginManager().registerCommand(this, new Reload());
         //Initialise the main variable, used to get the main instance
         main = this;
         //Creating the config file
@@ -57,15 +59,6 @@ public final class BungeeMessages extends Plugin {
             } catch (IOException e) {
                 this.getLogger().info("Error:" + e.getMessage());
             }
-        }
-    }
-
-    public void saveConfig(){
-        //Saving the config
-        try {
-            YamlConfiguration.getProvider(YamlConfiguration.class).save(configuration, new File(getDataFolder(), "config.yml"));
-        } catch (IOException e) {
-            this.getLogger().info("Error:" + e.getMessage());
         }
     }
 

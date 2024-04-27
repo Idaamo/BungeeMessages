@@ -1,4 +1,3 @@
 name: BungeeMessages
-version: '1.0'
-author: Idaamo_
+version: '${version}'
 main: fr.idaamo.bungeemessages.BungeeMessages
