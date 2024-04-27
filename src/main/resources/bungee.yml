@@ -1,0 +1,3 @@
+name: BungeeMessages
+version: '${version}'
+main: fr.idaamo.bungeemessages.BungeeMessages
