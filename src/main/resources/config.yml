@@ -4,3 +4,5 @@ messages:
   sender: "§6Me -> %t%§f: "
   target: "§6%s% -> Me: "
   usage: "§c/msg <player> <message>"
+  adminSuccessReload: "§aThe configuration file has been reloaded successfully"
+  adminHelp: "§c/bm <reload>"
