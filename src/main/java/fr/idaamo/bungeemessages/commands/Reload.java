@@ -18,18 +18,22 @@ public class Reload extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        //If there is at least one argument
         if(args.length == 0){
+            //Send help to the sender
             sendHelp(sender);
             return;
         }
 
         if(args[0].equalsIgnoreCase("reload")){
+            //Reloading configuration file
             main.loadConfig();
             sender.sendMessage(new ComponentBuilder(main.configuration.getString("messages.adminSuccessReload").replace("&", "§")).create());
         }
     }
 
     private void sendHelp(CommandSender sender) {
+        //Send help to the sender
         sender.sendMessage(new ComponentBuilder(main.configuration.getString("messages.adminHelp").replace("&", "§")).create());
     }
 }
