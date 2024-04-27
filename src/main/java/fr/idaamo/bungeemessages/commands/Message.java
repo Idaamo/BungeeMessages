@@ -39,8 +39,8 @@ public class Message extends Command {
             if(!sender.equals(target)) {
                 String message = getBuiltMessage(args);
                 //Sending each message
-                sender.sendMessage(getSenderMessage(target));
-                target.sendMessage(getTargetMessage(sender));
+                sender.sendMessage(getSenderMessage(target, message));
+                target.sendMessage(getTargetMessage(sender, message));
             }else{
                 //Sending the message ( cannot send to myself ) from the config file
                 sender.sendMessage(new ComponentBuilder(main.configuration.getString("messages.cannotSendSelf")
@@ -53,23 +53,23 @@ public class Message extends Command {
         }
     }
 
-    private BaseComponent[] getSenderMessage(ProxiedPlayer target) {
+    private BaseComponent[] getSenderMessage(ProxiedPlayer target, String message) {
         //New ComponentBuilder
         ComponentBuilder builder = new ComponentBuilder();
         //Getting the message in the config.yml ( customizable )
         //And replacing the target char ( from %t% to the target name, and the &s for the color )
         String senderMessage = main.configuration.getString("messages.sender").replace("%t%", target.getName()).replace("&", "§");
         //Adding the string in the component builder
-        builder.append(senderMessage);
+        builder.append(senderMessage + message);
         //Returning the BaseComponents
         return builder.create();
     }
 
-    private BaseComponent[] getTargetMessage(CommandSender sender){
+    private BaseComponent[] getTargetMessage(CommandSender sender, String message){
         //Same as the getSenderMethod
         ComponentBuilder builder = new ComponentBuilder();
         String targetMessage = main.configuration.getString("messages.target").replace("%s%", sender.getName()).replace("&", "§");
-        builder.append(targetMessage);
+        builder.append(targetMessage + message);
         return builder.create();
     }
 
