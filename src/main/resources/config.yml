@@ -1,2 +1,7 @@
 messages:
   ### Make sure that every line is not NULL, if so, there will be errors
+  cannotSendSelf: "§cError: You can't send a message to yourself !"
+  PlayerNotConnected: "§cError: This player is not connected."
+  sender: "§aMe -> %t%§f: "
+  target: "§a%s% -> Me§f: "
+  usage: "Command invalid: §c/msg <player> <message>"
